@@ -1,0 +1,102 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Api De validacion y recepcion de Pagos de Punto Pago",
+      "description": "Aplicacion de Pagos desde Punto Pago",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Operadores",
+        "description": "API for users in the system"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+      "paths": {
+        
+        "/api/operadorppago/{cedulaOperador}": {
+          "get": {
+            "tags": ["Operadores"],
+            "description": "Valida Operadores",
+            "parameters": [
+              {
+                "name": "cedulaOperador",
+                "in": "path",
+                "required": true,
+                "description": "Cedula del Operador a validar Sin Los guiones (Ejemplo : 8-149030 8149030)",
+                "type": "integer"
+              }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+              "200": {
+                "description": "Usuario Validado"
+              }
+            }
+          }
+        },
+        "/insertarppago/{id}/{fecha}/{operador}/{monto}/{cliente}": {
+          "get": {
+            "tags": ["Pagos"],
+            "description": "Inserta Pago de Operadores",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "Id de Pago",
+                "type": "integer"
+              },
+              {
+                "name": "fecha",
+                "in": "path",
+                "required": true,
+                "description": "Fecha de Pago",
+                "type": "string"
+              },
+              {
+                "name": "operador",
+                "in": "path",
+                "required": true,
+                "description": "Nro. Operador",
+                "type": "string"
+              },
+              {
+                "name": "monto",
+                "in": "path",
+                "required": true,
+                "description": "Id de Pago",
+                "type": "number"
+              },
+              {
+                "name": "cliente",
+                "in": "path",
+                "required": true,
+                "description": "Id de Cliente (cedula)",
+                "type": "string"
+              }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+              "200": {
+                "description": "Pago Insertado"
+              }
+            }
+          }
+        }
+
+
+
+
+      }
+    }
+
+
